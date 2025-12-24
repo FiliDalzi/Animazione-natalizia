@@ -45,3 +45,20 @@ gsap.from('.home__img-4', 1, {opacity: 0, y: 200, delay: 5, ease: "bounce.out"})
 gsap.from('.home__img-13', 1, {opacity: 0, y: 200, delay: 5.5, ease: "back.out(1.2)"})
 gsap.from('.home__img-12', 1, {opacity: 0, y: 200, delay: 5.5, ease: "back.out(1.2)"})
 gsap.from('.home__title', 1, {opacity: 0, y: 200, delay: 6, ease: "back.out(1.2)"})
+
+document.addEventListener("DOMContentLoaded", () => {
+    const startBtn = document.getElementById("start-btn");
+    const startScreen = document.getElementById("start-screen");
+    const music = document.getElementById("bg-music");
+
+    if (!startBtn) return; // sicurezza
+
+    startBtn.addEventListener("click", () => {
+        // Musica
+        const wantMusic = confirm("Vuoi avviare la musica? 🎵");
+        if (wantMusic) music.play().catch(err => console.log(err));
+
+        // Nascondi overlay
+        startScreen.style.display = "none";
+    });
+});
