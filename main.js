@@ -58,6 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const wantMusic = confirm("Vuoi avviare la musica? 🎵");
         if (wantMusic) music.play().catch(err => console.log(err));
 
+          // Fullscreen solo desktop
+        const isDesktop = window.matchMedia("(pointer: fine)").matches;
+        if (isDesktop) {
+            const wantFullscreen = confirm("Vuoi lo schermo intero? 🖥️");
+            if (wantFullscreen) document.documentElement.requestFullscreen().catch(err => console.log(err));
+        }
+
         // Nascondi overlay
         startScreen.style.display = "none";
     });
